@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Using Flexbox over CSS Grid */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.title {
+    padding-top: 1rem;
+    padding-bottom: .3rem;
+}
+.form__response-no {
+    display: none;
+    color: #f92428;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.form {
+    margin: 2rem 0;
+    padding: 1rem 20%;
+    background-color: #FCFBF2;
+    border: 1px solid #CCC;
+    padding-bottom: 4rem;
+    width: 600px;
+}
+.form__email-label {
+    font-weight: 600;
+    display: inline-block;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+}
+.form__email-field {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 92%;
+    padding: .7rem 1rem;
+    font-size: 1.2rem;
+}
+.form__reset-password-btn {
+    margin: 1.6rem 0;
+    padding: 1.2rem 4rem;
+    background-color: #005194;
+    border: 1px solid #005194;
+    border-radius: 2px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.form__reset-password-btn:hover {
+    border: 1px solid black;
+    transition: all 500ms ease;
+    cursor: pointer;
+}
+.form__go-back-btn {
+    background-color: rgba(255,255,255,0);
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 2px;
+    color: #005194;
+    padding: 1.3rem 4rem;
+    font-size: 1rem;
+}
+.form__go-back-btn:hover {
+    background-color: rgba(255,255,255,1);
+    border: 1px solid black;
+    transition: all 500ms ease;
+    cursor: pointer;
+}
+.form__reset-help {
+    color: #005194;
+}
+.form__reset-help:hover {
+    cursor: pointer;
+}
+.form__reset-help-text {
+    display: none;
+}
+.form__reset-help-text {
+    background-color: white;
+    margin: 1rem 0;
+    padding: 1.2rem;
+    padding-bottom: .2rem;
+    border: 1px solid #bbb;
+}
+.form__reset-help-text p {
+    padding-bottom: 1rem;
+}
+.form__reset-help-text__list {
+    padding-left: 1.2rem;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+}
+.form__reset-help-text__list li {
+    padding-bottom: .5rem;
+}
+.form__reset-help-text__list li i {
+    font-size: .8em;
+}
+.form__reset-help-text__list__register {
+    color: #005194;
+    text-decoration: none;
+}

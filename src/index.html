@@ -8,6 +8,40 @@
     <script async src="./scripts/app.ts"></script>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+
+    <h1 class="title">Forgot Your Password?</h1>
+    <p class="subtitle">Please enter your email address below to receive a password reset link.</p>
+    
+    <!-- Password Reset form -->
+    <form class="form">
+      <!-- Hidden Unsuccessful account reset note -->
+      <span class="form__response-no">Sorry there is no account attached to that email address</span><br/>
+
+      <!-- Form Begins -->
+      <label class="form__email-label">Email Address</label> <br/>
+      <input type="text" class="form__email-field" name="email-field" placeholder="Your email address" /> <br/>
+      <input type="submit" class="form__reset-password-btn" value="Reset Password" />
+
+      <input type="button" class="form__go-back-btn" value="Go Back" /> <br/>
+
+      <span class="form__reset-help">Are you having trouble receiving your password reset? &#9013;</span>
+      <!-- Form Ends -->
+
+      <!-- Hidden until clicked on help -->
+      <div class="form__reset-help-text">
+        <p>We have had some customers who mistakenly believe they have a store account when in fact they are only signed up to receive our VIP Club newsletter.</p>
+
+        <p>If you receive our newsletter but have never made a purchase online this might apply to you, the best way to check this is to do the following:</p>
+
+        <ol class="form__reset-help-text__list">
+          <li>Go back to the <a href="#" class="form__reset-help-text__list__register">register page</a></li>
+          <li>Register with your email address <br/>
+            <i>If you do already have an account the form will tell you</i>
+          </li>
+        </ol>
+
+        <p>If the form tells you that you already have an account and the password reset doesn't work please contact the Customer Service Team on 033 900 0094</p>
+      </div>
+    </form>
   </body>
 </html>
