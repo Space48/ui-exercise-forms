@@ -17,13 +17,15 @@ const database = [
   "joe.bloggs@space48.com",
 ];
 
-const email_address = document.getElementById("email").value;
 const email_regex = document.querySelector(".form-body span");
 
 document.getElementById("password-form").addEventListener("submit", (e) => {
+  const email_address = document.getElementById("email").value;
+  const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   const method = {
     method: "POST",
-    header: { "Content-type": "application/json" },
+    headers: { "Content-type": "application/json" },
     body: JSON.stringify(email_address),
   };
 
@@ -36,12 +38,23 @@ document.getElementById("password-form").addEventListener("submit", (e) => {
   fetch("/customer/account/resetPassword", method)
     .then(errorHandling)
     .then((data) => console.log(data))
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      email_address.length === 0 &&
+        regexAlert(e.target, "error", "Email is required");
 
-  if (email_address.length === 0)
-    regexAlert(e.target, "error", "Email is required");
+      !email_address.match(regex) &&
+        regexAlert(e.target, "error", "Invalid Email");
 
-  console.log(database[email_address], email_address.length === 0);
+      // if is -1 meaning is not in database
+      database.indexOf(email_address) === -1 &&
+        regexAlert(
+          e.target,
+          "error",
+          "Email has not been found in our database"
+        );
+
+      console.log(err);
+    });
 
   e.preventDefault();
   e.stopPropagation;
