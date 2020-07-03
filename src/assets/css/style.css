@@ -4,6 +4,8 @@
   --gray: #f7f7f7;
   --gray-2: rgb(211, 211, 211);
   --white: #fff;
+  --red: #f94144;
+  --pink: #f8caca;
 }
 
 .container {
@@ -45,6 +47,12 @@ form {
   border: 1px solid #000;
   outline: none;
   font-size: 1rem;
+}
+
+.form-body span {
+  color: var(--red);
+  margin-top: 0.5rem;
+  display: none;
 }
 
 input:focus {
@@ -130,4 +138,19 @@ button:hover {
   font-size: 0.9rem;
   display: block;
   margin-left: 1.5rem;
+}
+
+.regex-alert {
+  text-align: center;
+}
+
+.error {
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.input-error {
+  background: var(--pink);
+  border-color: var(--red);
 }
