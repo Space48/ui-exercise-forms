@@ -6,22 +6,22 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "parcel ./src/index.html && server",
+    "start": "PORT=1234 react-scripts start",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
     "setup": "npm i",
     "server": "node ./server.js"
   },
   "devDependencies": {},
   "dependencies": {
-    "@parcel/transformer-css": "^2.0.0-alpha.3",
-    "@parcel/transformer-postcss": "^2.0.0-alpha.3",
-    "parcel": "^2.0.0-beta.1",
-    "sass": "^1.26.9",
+    "axios": "^0.19.2",
     "concurrently": "^5.2.0",
     "husky": "^4.2.5",
     "json-server": "^0.16.1",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
   "husky": {
     "hooks": {
@@ -31,6 +31,18 @@
   "lint-staged": {
     "*.{js,ts,tsx,scss,css,pcss}": [
       "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
