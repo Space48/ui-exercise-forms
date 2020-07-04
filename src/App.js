@@ -6,7 +6,13 @@ import "./App.css";
 
 class App extends Component {
   state = {
+    displayResetResult: false,
+    resetMessage: "",
+    resetClass: "",
+    showPlaceholder: false,
     email: "",
+    displayEmailError: "",
+    instructionsDisplay: false,
   };
 
   handleInput = (event) => {
@@ -24,11 +30,35 @@ class App extends Component {
           .post("http://localhost:3005/customer/account/resetPassword", {
             email: email,
           })
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
+          .then((response) =>
+            this.setState({
+              displayResetResult: true,
+              resetMessage:
+                "Success, we have emailed your password reset link.",
+              resetClass: "success",
+              showPlaceholder: true,
+            })
+          )
+          .catch((error) =>
+            this.setState({
+              displayResetResult: true,
+              resetMessage:
+                "Sorry, there's no account attached to that email address.",
+              resetClass: "error",
+            })
+          );
   };
 
   render() {
+    const {
+      displayResetResult,
+      resetClass,
+      resetMessage,
+      showPlaceholder,
+      displayEmailError,
+      instructionsDisplay,
+    } = this.state;
+
     return (
       <div className="App">
         <h1 className="page-title">Forgot your password?</h1>
@@ -37,6 +67,17 @@ class App extends Component {
           link.
         </h5>
         <div className="reset-form">
+          {displayResetResult && (
+            <span className={resetClass}>{resetMessage}</span>
+          )}
+          {showPlaceholder && (
+            <p className="placeholder">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip.
+            </p>
+          )}
           <div>
             <p className="email-label">Email Address</p>
             <input
@@ -45,6 +86,11 @@ class App extends Component {
               placeholder="Your email address"
               onChange={this.handleInput}
             />
+            {displayEmailError && (
+              <p className="invalid-email">
+                Please enter a valid email address.
+              </p>
+            )}
             <div className="buttons">
               <button className="reset-button" onClick={this.handleReset}>
                 Reset Password
