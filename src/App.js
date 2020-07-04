@@ -3,6 +3,16 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    email: "",
+  };
+
+  handleInput = (event) => {
+    this.setState({
+      email: event.target.value,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -14,7 +24,12 @@ class App extends Component {
         <div className="reset-form">
           <div>
             <p className="email-label">Email Address</p>
-            <input type="email" id="email" placeholder="Your email address" />
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email address"
+              onChange={this.handleInput}
+            />
             <div className="buttons">
               <button className="reset-button">Reset Password</button>
               <a>Go Back</a>
