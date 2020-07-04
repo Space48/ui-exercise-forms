@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 import "./App.css";
 
 class App extends Component {
@@ -11,6 +13,19 @@ class App extends Component {
     this.setState({
       email: event.target.value,
     });
+  };
+
+  handleReset = () => {
+    const { email } = this.state;
+
+    email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) === null
+      ? this.setState({ displayEmailError: true })
+      : axios
+          .post("http://localhost:3005/customer/account/resetPassword", {
+            email: email,
+          })
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
   };
 
   render() {
@@ -31,7 +46,9 @@ class App extends Component {
               onChange={this.handleInput}
             />
             <div className="buttons">
-              <button className="reset-button">Reset Password</button>
+              <button className="reset-button" onClick={this.handleReset}>
+                Reset Password
+              </button>
               <a>Go Back</a>
             </div>
           </div>
