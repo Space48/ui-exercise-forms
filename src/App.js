@@ -18,6 +18,9 @@ class App extends Component {
   handleInput = (event) => {
     this.setState({
       email: event.target.value,
+      displayEmailError: false,
+      displayResetResult: false,
+      showPlaceholder: false,
     });
   };
 
@@ -47,6 +50,11 @@ class App extends Component {
               resetClass: "error",
             })
           );
+  };
+
+  handleInstructions = () => {
+    const { instructionsDisplay } = this.state;
+    this.setState({ instructionsDisplay: !instructionsDisplay });
   };
 
   render() {
@@ -98,40 +106,48 @@ class App extends Component {
               <a>Go Back</a>
             </div>
           </div>
-          <span className="instructions-btn">
+          <span className="instructions-btn" onClick={this.handleInstructions}>
             Are you having trouble receiving your password reset?{" "}
             <ion-icon name="chevron-down-outline" />
           </span>
-          <div>
-            <p className="main-paragraphs">
-              We have had some customers who mistakenly believe they have store
-              account when in fact they are only signed up to receive our VIP
-              Club newsletter.
-            </p>
-            <br />
-            <p className="main-paragraphs">
-              If you receive our newsletter but have never made a purchase
-              online this might apply to you, the best way to check this is to
-              do the following:
-            </p>
-            <br />
-            <p>
-              1. Go back to the <a>register page</a>.
-            </p>
-            <p>
-              2. Register with your email address.
-              <span>
-                <br />
-                If do you already have an account the form will tell you.
-              </span>
-            </p>
-            <br />
-            <p className="main-paragraphs">
-              If the form tells you you already have an account and the password
-              reset doesn't work please contact the Customer Service Team on 033
-              900 0094.
-            </p>
-          </div>
+          {
+            <div
+              className={
+                instructionsDisplay
+                  ? "instructions-visible"
+                  : "instructions-hidden"
+              }
+            >
+              <p className="main-paragraphs">
+                We have had some customers who mistakenly believe they have
+                store account when in fact they are only signed up to receive
+                our VIP Club newsletter.
+              </p>
+              <br />
+              <p className="main-paragraphs">
+                If you receive our newsletter but have never made a purchase
+                online this might apply to you, the best way to check this is to
+                do the following:
+              </p>
+              <br />
+              <p>
+                1. Go back to the <a>register page</a>.
+              </p>
+              <p>
+                2. Register with your email address.
+                <span>
+                  <br />
+                  If do you already have an account the form will tell you.
+                </span>
+              </p>
+              <br />
+              <p className="main-paragraphs">
+                If the form tells you you already have an account and the
+                password reset doesn't work please contact the Customer Service
+                Team on 033 900 0094.
+              </p>
+            </div>
+          }
         </div>
       </div>
     );
