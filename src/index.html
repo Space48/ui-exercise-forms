@@ -1,13 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Password Reset Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles/app.pcss" />
-    <script async src="./scripts/app.ts"></script>
-  </head>
-  <body>
-    <div>Replace me with the exercise design</div>
-  </body>
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Password Reset Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT AWESOME -->
+
+        <script src="https://kit.fontawesome.com/4b756d3714.js" crossorigin="anonymous"></script>
+
+        <!-- BOOTSTRAP CSS -->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- APP CSS & JS -->
+
+        <link rel="stylesheet" href="./styles/app.pcss" />
+        <script async src="./scripts/app.ts"></script>
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <!-- PAGE HEADER -->
+
+            <div class="container-xl py-5">
+                <header class="row">
+                    <div class="col">
+                        <h3 class="text-center">Forgot Your Password?</h3>
+                        <p class="text-center">Please enter your email address below to receive a password reset link.</p>
+                    </div>
+                </header>
+            </div>
+
+            <!-- START OF FORM SECTION -->
+
+            <div class="bg-light">
+                <div class="container-xl py-5">
+                    <section id="formHolder" class="row">
+                        <div class="col-md-6 mx-auto">
+
+                            <!-- ALERTS -->
+
+                            <div id="alerts">
+                                <h6 id="alerts_noAcc" class="text-danger text-center mb-5 d-none">Sorry, there is no account attached to that email address</h6>
+                                <div id="alerts_success" class="text-center d-none">
+                                    <h6 class="text-s48">Success, we have emailed your password reset link</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non faucibus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+                                </div>
+                            </div>
+
+                            <!-- FORM -->
+
+                            <form id="newPasswordForm" class="needs-validation" novalidate>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input class="form-control form-control-lg border-dark" id="email" type="email" title="Please enter your email address" placeholder="Your email address" autofocus required>
+                                    <div class="invalid-feedback font-italic">Please enter a valid email address</div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <button id="submitBtn" class="btn btn-lg btn-s48 rounded-sm w-50" form="newPasswordForm" type="submit">Reset Password</button>
+                                    <a href="#" class="text-s48">Go back</a>
+                                </div>
+                            </form>
+
+                            <!-- EXPLAINER TEXT -->
+
+                            <a href="#resetTrouble" class="text-s48 d-block mt-4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="resetTrouble">Are you having trouble receiving your password reset? <i class="fas fa-angle-down"></i></a>
+                            <div id="resetTrouble" class="collapse border border-dark p-4 mt-3">
+                                <p>We have had some customers who mistakenly believe they have a store account when in fact they are only signed up to receive our VIP Club newsletter.</p>
+                                <p>If you receive our newsletter but have never made a purchase online this might apply to you, the best way to check this is to do the following:</p>
+                                <ol class="pl-4">
+                                    <li class="lead">Go back to <a href="#" class="text-s48">register page</a></li>
+                                    <li><span class="lead">Register with your email address</span><br><i>If you do already have an account the form will tell you</i></li>
+                                </ol>
+                                <p>If the form tells you you already have an account and the password reset doesn't work please contact the Customer Service Team on 033 900 0094</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- BOOTSTRAP JS / JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
 </html>
