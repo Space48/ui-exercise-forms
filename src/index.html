@@ -3,11 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <title>Password Reset Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles/app.pcss" />
-    <script async src="./scripts/app.ts"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles/app.css" />
+    <script async src="./scripts/app.js"></script>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <div class="page-container">
+        <div class="content-container">
+          <div class="title-container">
+            <h1>Forgot Your Password?</h1>
+            <p>
+              Please enter your email address below to receive a password reset
+              link.
+            </p>
+          </div>
+          <div class="form-container">
+              <form onsubmit="return false;" id="form">
+                <div class="success-container">
+                    <h3>Success, we have emailed you your password reset link.</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
+                    </p>
+                </div>
+                <p class="error-message"></p>
+
+                <span class="label">Email Address</span>
+                  <input type="email" id="email-input" placeholder="Your email address" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                  <input id="submit-button" class="submit-button" type="submit" value="Reset Password">
+                  <button class="back-button">Go Back</button>
+                  <p id="more-info-button" class="more-info-button">Are you having trouble receiving your password reset?</p>
+                  <div class="more-info-container" id="more-info-container">
+                      <p>We have had some customers who mistakenly believe they have a store account when in fact they are only signed up to receive our VIP Club newsletter...</p>
+                  </div>
+                </form>
+              
+          </div>
+      </div>
+    </div>
   </body>
 </html>
