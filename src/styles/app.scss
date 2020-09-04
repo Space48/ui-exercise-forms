@@ -1,0 +1,138 @@
+body {
+  font-family: sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+$accentColor: #005194;
+
+.main {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  display: block;
+  .content {
+    width: 100%;
+    max-width: 1190px;
+    margin: 3em auto;
+    padding: 20px;
+    box-sizing: border-box;
+    .content-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 1em;
+        color: #666;
+      }
+    }
+    .content-form {
+      background-color: #f7f7f7;
+      border: 1px solid #eee;
+      width: 100%;
+      padding: 20px 10px;
+      border-radius: 3px;
+      form {
+        width: 100%;
+        max-width: 455px;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        .field {
+          width: 100%;
+          margin-bottom: 25px;
+          display: block;
+          label {
+            padding: 10px 0;
+            display: block;
+            width: 100%;
+
+            font-weight: 500;
+          }
+          .email {
+            padding: 14px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            width: 100%;
+          }
+        }
+        .actions {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          width: 100%;
+          .btn-submit,
+          .btn-default {
+            padding: 20px;
+            background-color: $accentColor;
+            color: white;
+            border: 0;
+            cursor: pointer;
+            font-size: 15px;
+            width: 60%;
+            max-width: 286px;
+            border-radius: 3px;
+            text-align: center;
+          }
+          .btn-default {
+            background-color: transparent;
+            border: none;
+            color: black;
+            width: 40%;
+            color: $accentColor;
+          }
+        }
+        .information {
+          width: 100%;
+          margin-bottom: 20px;
+          margin-top: 20px;
+          .headlabel {
+            color: $accentColor;
+            cursor: pointer;
+            position: relative;
+            &:after {
+              position: absolute;
+              right: -20px;
+              width: 8px;
+              height: 8px;
+              content: "";
+              border-bottom: 2px solid $accentColor;
+              border-right: 2px solid $accentColor;
+              transform: rotate(45deg);
+            }
+          }
+          .menubar {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #999;
+            color: #555;
+            margin-top: 20px;
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+input.dropmenu1 {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+}
+input.dropmenu1 ~ div.menubar {
+  display: none;
+}
+input.dropmenu1:checked ~ div.menubar {
+  position: relative;
+  display: block;
+}
