@@ -1,36 +1,30 @@
 {
-  "name": "ui-exercise-forms",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Darren Belding <darren.belding@space48.com>",
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-    "start": "parcel ./src/index.html && server",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "setup": "npm i",
-    "server": "node ./server.js"
-  },
-  "devDependencies": {},
-  "dependencies": {
-    "@parcel/transformer-css": "^2.0.0-alpha.3",
-    "@parcel/transformer-postcss": "^2.0.0-alpha.3",
-    "parcel": "^2.0.0-beta.1",
-    "sass": "^1.26.9",
-    "concurrently": "^5.2.0",
-    "husky": "^4.2.5",
-    "json-server": "^0.16.1",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,scss,css,pcss}": [
-      "prettier --write"
-    ]
-  }
+	"author": "mike",
+	"description": "A web app that gives me the knowledge to make node js apps",
+	"name": "fcc-learn-npm-package-json",
+	"license": "MIT",
+	"version": "1.2.0",
+	"keywords": [
+		"freecodecamp",
+		"mike",
+		"bobbbasds"
+	],
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"cookie-parser": "^1.4.3",
+		"dotenv": "^8.2.0",
+		"express": "^4.14.0",
+		"fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": "12.18.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://idontknow/todo.git"
+	}
 }
