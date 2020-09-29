@@ -26,6 +26,8 @@ async function resetController(req, res, next) {
   try {
     const userId = req.body.email;
 
+    console.log(req.body);
+
     if (!userId) {
       return res.status(400).jsonp({
         data: null,
