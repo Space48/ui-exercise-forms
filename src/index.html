@@ -8,6 +8,51 @@
     <script async src="./scripts/app.ts"></script>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <main role="main">
+      <section class="forgotPassword">
+        <header class="pageHeader">
+          <h1 class="pageHeader__title">Forgot your Password?</h1>
+          <p class="pageHeader__description">Please enter your email address below to receive a password reset link.</p>
+        </header>
+        <section class="pageContent">
+          <form action="/customer/account/resetPassword" method="post" novalidate>
+            <div class="formStatus form__status--hidden form__status--error form__status--success">
+              <h2 class="formStatus__title">Sorry, there is no account attached to that email address</h2>
+
+              <h2 class="formStatus__title">Success, we have emailed your password reset link</h2>
+              <p class="formStatus__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate harum aperiam suscipit repellendus natus architecto obcaecati itaque enim vel consectetur facilis, quo est corrupti iure ab temporibus aliquid omnis ullam officia error illo doloremque! Sapiente corrupti repudiandae excepturi totam ipsa, dolor voluptas omnis, hic nulla ullam deleniti ex alias id.</p>
+            </div>
+            <div class="form__container">
+              <div class="input input--error">
+                <label for="email">Email Address</label>
+                <input type="email" required name="email" id="email" placeholder="Your email address">
+                <span class="input__error input__error--hidden"></span>
+              </div>
+              <div class="actions">
+                <button class="actions__button button" type="submit">Reset Password</button>
+                <a class="actions__link link" href="/customer/account">Go Back</a>
+              </div>
+
+            </div>
+          </form>
+          <div class="form__container accordeon">
+            <button class="accordeon__action">
+              Are you having trouble resetting your password?
+            </button>
+            <div class="accordeon__content accordeon__content--hidden">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, repellendus.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, qui.</p>
+              <ol>
+                <li>Go back to the <a href="/customer/account/register">register page</a></li>
+                <li>Register with your email address
+                  <i>If do you already have an account the form will tell you</i>
+                </li>
+              </ol>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, accusamus. <a href="tel:0339000094">033 900 0094</a></p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
   </body>
 </html>
