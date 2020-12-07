@@ -1,0 +1,30 @@
+// I broke the ticket down into three components, the logic, styling and structure. To speed things up I decided to use some frameworks. Bootstrap 4 and Jquery. After this I broke each component into modules. 
+
+- JS -
+=> instructions
+=> error outputs
+=> requests
+
+- Styles -
+=> layout
+=> typography
+=> actions
+
+- html -
+=> structure
+=> accessibility
+=> responsive
+
+// I was curious if there were supposed to be two designs, with different 'Are you having trouble' messages.
+
+// I would move the 'no account attached' message with the 'please enter a valid email address' message as this could cause confusion with the user, thinking we haven't validated their email and that's why we're not matching it. Plus it prevents pushing the input fields further down the screen on mobile.
+
+... I would also remove the input fields entirely upon success and replace the entire form/instructions area with the success message as these are no longer required.
+
+... Add some options to the 'no account' message so the user has an idea what to do next.
+
+... Fix the spelling 'troube'to 'trouble'
+
+// Given more time I would like to offer some feedback to the user through gentle animation tactics, such as fading the email field label upon entering the input field. Reappearing if the field is left empty again. Possibly in red if the field is invalid or green if valid.
+
+... I'd also run a sass compiler to load the css, and chain up the db.json to the form.

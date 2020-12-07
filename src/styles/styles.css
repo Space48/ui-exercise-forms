@@ -1,0 +1,81 @@
+/* Globals */
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0 5%;
+}
+/* Password box layout */
+#forgot-password {
+  margin-top: 100px;
+}
+#forgot-password__header {
+  text-align: center;
+}
+#forgot-password__body {
+  padding: 30px;
+  background: #eee;
+  border: solid 2px #ddd;
+}
+#forgot-password__footer {
+  margin-top: 30px;
+}
+
+/* The form */
+#forgot-password__body form {
+  max-width: 40%;
+  margin: auto;
+  text-align: left;
+}
+
+#forgot-password__body label {
+  display: block;
+}
+#forgot-password__body input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  border: solid 1px #999;
+}
+#forgot-password__body input[type="email"] {
+  width: 100%;
+  margin: 10px 0;
+}
+#forgot-password__body input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background: darkBlue;
+  color: #fff;
+  border: none;
+}
+.return-link {
+  text-align: right;
+  display: block;
+  margin-top: 15px;
+  color: darkBlue;
+}
+.reset-query {
+  color: darkBlue;
+}
+.instructions {
+  display: none;
+  padding: 30px;
+  background: #fff;
+  border: solid 1px #ccc;
+}
+
+/* Messages */
+#success-message,
+#denied-message {
+  display: none;
+  text-align: center;
+}
+#success-message h3,
+#denied-message h3,
+#error {
+  color: red;
+}
+#success-message h3,
+#denied-message h3 {
+  font-size: 18px;
+}
