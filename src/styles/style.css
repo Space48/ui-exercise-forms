@@ -17,9 +17,11 @@
 h1 {
   font-size: 40px;
 }
+
 p {
   margin: 20px 0px;
 }
+
 /* !Form conatiner */
 form {
   display: flex;
@@ -41,12 +43,14 @@ input {
   height: 40px;
   border-radius: 5px;
 }
+
 .button-container {
   margin-top: 20px;
   width: 40%;
   display: flex;
   justify-content: space-between;
 }
+
 .reset-button {
   background-color: #4267b2;
   color: white;
@@ -55,20 +59,24 @@ input {
   font-size: 22px;
   cursor: pointer;
 }
+
 .go-back {
   margin-top: 15px;
   color: #4267b2;
   cursor: pointer;
 }
+
 .trouble-question {
   color: #4267b2;
   font-size: 18px;
 }
+
 #reveal-instruction {
   margin-left: 5px;
   cursor: pointer;
   font-size: 20px;
 }
+
 .hide-text {
   width: 50%;
   background-color: white;
@@ -76,6 +84,7 @@ input {
   font-size: 30px;
   display: none;
 }
+
 .text {
   padding: 20px 10px;
   width: 40%;
@@ -83,6 +92,7 @@ input {
   background-color: white;
   font-size: 18px;
 }
+
 /* !ancher tag */
 a {
   text-decoration: none;
@@ -93,9 +103,11 @@ a {
   h1 {
     font-size: 30px;
   }
+
   p {
     margin: 20px 20px;
   }
+
   .button-container {
     margin-top: 20px;
     width: 40%;
@@ -103,12 +115,14 @@ a {
     justify-content: space-between;
     flex-direction: column;
   }
+
   input {
     padding: 0 10px;
     width: 80%;
     height: 40px;
     border-radius: 5px;
   }
+
   .reset-button {
     background-color: #4267b2;
     margin-top: 10px;
@@ -118,6 +132,7 @@ a {
     font-size: 14px;
     cursor: pointer;
   }
+
   .text {
     padding: 20px 10px;
     width: 90%;
