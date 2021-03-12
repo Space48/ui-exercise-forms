@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Password Reset Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles/app.pcss" />
-    <script async src="./scripts/app.ts"></script>
-  </head>
-  <body>
-    <div>Replace me with the exercise design</div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Password Reset Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles/app.pcss" />
+  <link rel="stylesheet" href="styles/style.css">
+  <script async src="./scripts/app.ts"></script>
+</head>
+
+<body>
+  <center>
+    <div class="container">
+      <h1>Forget Your Password?</h1>
+      <p>Please enter your email address below to receive a password reset link.</p>
+      <form action="/customer/account/resetPassword" method="POST">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Your email address">
+        <div class="button-container">
+          <button class="reset-button">Reset Password</button>
+          <a class="go-back">Go Back</a>
+        </div>
+
+        <p class="trouble-question"> Are you having trouble receiving your password reset? <a
+            id="reveal-instruction">&#8681;</a></p>
+        <p id="trouble-question" class="hide-text text">
+          We have had some customer who mistakenly believe they <br>have a store account when in fact they are only
+          signed up<br> to recive our VIP Club newsletter.<br><br>
+          If you receive our newsletter but have never made a <br>purchase online this might apply to you, the best way
+          to<br> check this is to do the following:<br><br>
+          <b>1. Go back to the <a href="/registeration">Register page</a></b><br>
+          <b>2. Register with your email address</b><br><br>
+          if you already have an account the form will tell you<br>
+          if the form tells you, that you already have an account and the<br> password rest doesn't work, please contact
+          the
+          Customer<br> Service Team on <a href="tel:0339000094">0339000094</number>
+        </p>
+      </form>
+    </div>
+  </center>
+  <script src="index.js"></script>
+</body>
+
 </html>
