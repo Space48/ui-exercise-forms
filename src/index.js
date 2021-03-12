@@ -9,10 +9,11 @@ function addingShowClass() {
   } else if (!troubleQuestion.classList.contains("hide-text")) {
     troubleQuestion.classList.add("hide-text");
   }
+  // ! another available option
   // setTimeout(() => {
   //   troubleQuestion.classList.add('hide-text')
   // }, 10000)
 }
 
-//! event listner
+//! event listner, on click reveal Instruction
 revealInstruction.addEventListener("click", addingShowClass);
