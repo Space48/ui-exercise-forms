@@ -1,6 +1,3 @@
-<!-- no error handling -->
-<!-- css variables -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,28 +40,47 @@
       .password-reset > form {
         border: 1px solid #eaeaea;
         background-color: #f7f7f7;
-        padding: 2rem;
+        padding: 2.5rem 1rem;
       }
 
-      .password-reset > form > .error {
+      .password-reset > form > .message,
+      .password-reset > form > .submessage {
         text-align: center;
         max-width: 33rem;
         margin: 0 auto;
-        margin-top: 1rem;
+      }
+
+      .password-reset > form > .message {
         margin-bottom: 2rem;
-        color: #f82c30;
         font-weight: bold;
         font-size: 1rem;
         display: none;
       }
 
-      .password-reset > form.error > .error {
+      .password-reset > form > .submessage {
+        margin-bottom: 3.5rem;
+        font-size: 0.95rem;
+        display: none;
+      }
+
+      .password-reset > form.error > .message {
+        display: block;
+        color: #f82c30;
+      }
+
+      .password-reset > form.success > .message {
+        display: block;
+        color: #005194;
+      }
+
+      .password-reset > form.success > .submessage {
         display: block;
       }
 
       .password-reset > form > label,
       .password-reset > form > .submit,
-      .password-reset > form > .help {
+      .password-reset > form > .help,
+      .password-reset > form > .help-message {
         max-width: 30rem;
         margin: 0 auto;
         display: block;
@@ -76,7 +92,7 @@
 
       .password-reset > form > label > input {
         display: block;
-        border: 1px solid #797979;
+        border: 1px solid #2c2c2c;
         border-radius: 3px;
         margin-top: 0.4rem;
         padding: 0.7rem 1rem;
@@ -85,18 +101,34 @@
       }
 
       .password-reset > form > label > input::placeholder {
-        color: #222222;
         font-size: 0.9rem;
+        color: #2c2c2c;
+      }
+
+      .password-reset > form > label > input:focus {
+        background-color: #e8f1f8;
+        border-color: #787979;
       }
 
       .password-reset > form > label > .message {
-        font-size: 0.8rem;
-        font-style: italic;
-        color: #f92529;
         display: none;
       }
 
-      .password-reset > form.error > label > .message {
+      .password-reset > form > label.error > input {
+        border-color: #f82c30;
+        background-color: #feeff0;
+      }
+
+      .password-reset > form > label.error > input::placeholder {
+        color: black;
+      }
+
+      .password-reset > form > label.error > .message {
+        font-size: 0.8rem;
+        font-style: italic;
+        margin-top: 0.2rem;
+        margin-bottom: -1rem;
+        color: #f92529;
         display: block;
       }
 
@@ -114,7 +146,13 @@
         font-weight: bold;
         font-size: 1.1rem;
         padding: 1rem 4rem;
+        cursor: pointer;
         border: 0;
+      }
+
+      .password-reset > form > .submit > button:hover,
+      .password-reset > form > .submit > button:focus {
+        background-color: #003561;
       }
 
       .password-reset > form > .submit > .back {
@@ -146,6 +184,37 @@
         position: relative;
         bottom: 0.1rem;
       }
+
+      .password-reset > form > .help-message {
+        border: 1px solid #c0c0c0;
+        background-color: white;
+        padding: 1.2rem;
+        margin-top: 1rem;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        display: none;
+      }
+
+      .password-reset > form > .help-message.shown {
+        display: block;
+      }
+
+      @media (max-width: 32rem) {
+        .password-reset > form,
+        .password-reset > form > label > input {
+          text-align: center;
+        }
+
+        .password-reset > form > .submit {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .password-reset > form > .submit > button {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -154,7 +223,8 @@
       <p>Please enter your email address below to receive a password reset link.</p>
 
       <form>
-        <p class="error">Sorry, there is no account attached to that email address</p>
+        <p class="message"></p>
+        <p class="submessage"></p>
 
         <label>
           Email Address
@@ -163,7 +233,7 @@
         </label>
 
         <div class="submit">
-          <button>Reset Password</button>
+          <button type="submit">Reset Password</button>
           <a class="back" href="#">Go Back</a>
         </div>
 
@@ -173,12 +243,18 @@
         </div>
 
         <div class="help-message">
-
+          We have some customers who...
         </div>
       </form>
     </div>
 
     <script>
+      /* from: https://stackoverflow.com/a/46181 */
+      function is_valid_email(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+      }
+
       async function query_email(email) {
         let response = await fetch(
           "http://localhost:3005/customer/account/resetPassword", {
@@ -193,7 +269,56 @@
         return await response.json();
       }
 
-      query_email("lol@bob.com");
+      function submit_form(form, email_label, email) {
+        query_email(email).then(response => {
+          let message = form.querySelector(".message");
+          let submessage = form.querySelector(".submessage");
+
+          if (response.errors.length) {
+            form.classList.add("error");
+            form.classList.remove("success");
+            email_label.classList.add("error");
+            message.innerText = response.errors[0].detail;
+          } else {
+            form.classList.add("success");
+            form.classList.remove("error");
+            message.innerText = "Success, we have emailed your password reset link.";
+            submessage.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada nibh sed elit dignissim vehicula. Donec dictum lacus bibendum velit molestie, id lobortis nulla suscipit.";
+          }
+        });
+      }
+
+      function listen_for_form_submits() {
+        let form = document.querySelector(".password-reset > form");
+
+        form.addEventListener("submit", function(event) {
+          let email_label = form.querySelector("label");
+          let email_input = email_label.querySelector("input[name=email]");
+          let email = email_input.value;
+
+          if (is_valid_email(email)) {
+            email_label.classList.remove("error");
+            submit_form(form, email_label, email);
+          } else {
+            email_label.classList.add("error");
+          }
+
+          event.preventDefault();
+        });
+      }
+
+      function listen_for_help_clicks() {
+        let link = document.querySelector(".password-reset > form > .help");
+
+        link.addEventListener("click", function(event) {
+          let box = document.querySelector(".password-reset > form > .help-message");
+          box.classList.toggle("shown");
+          event.preventDefault();
+        });
+      }
+
+      listen_for_form_submits();
+      listen_for_help_clicks();
     </script>
   </body>
 </html>
