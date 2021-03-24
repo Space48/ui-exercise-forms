@@ -1,3 +1,6 @@
+<!-- no error handling -->
+<!-- css variables -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,8 +9,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles/app.pcss" />
     <script async src="./scripts/app.ts"></script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem;
+        color: #2c2c2c;
+      }
+
+      .password-reset {
+        padding: 2rem 0;
+      }
+
+      .password-reset > h2,
+      .password-reset > p {
+        text-align: center;
+        margin: 0;
+      }
+
+      .password-reset > h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .password-reset > p {
+        font-size: 0.9rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .password-reset > form {
+        border: 1px solid #eaeaea;
+        background-color: #f7f7f7;
+        padding: 2rem;
+      }
+
+      .password-reset > form > .error {
+        text-align: center;
+        max-width: 33rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        color: #f82c30;
+        font-weight: bold;
+        font-size: 1rem;
+        display: none;
+      }
+
+      .password-reset > form.error > .error {
+        display: block;
+      }
+
+      .password-reset > form > label,
+      .password-reset > form > .submit,
+      .password-reset > form > .help {
+        max-width: 30rem;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .password-reset > form > label {
+        margin-bottom: 1.6rem;
+      }
+
+      .password-reset > form > label > input {
+        display: block;
+        border: 1px solid #797979;
+        border-radius: 3px;
+        margin-top: 0.4rem;
+        padding: 0.7rem 1rem;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .password-reset > form > label > input::placeholder {
+        color: #222222;
+        font-size: 0.9rem;
+      }
+
+      .password-reset > form > label > .message {
+        font-size: 0.8rem;
+        font-style: italic;
+        color: #f92529;
+        display: none;
+      }
+
+      .password-reset > form.error > label > .message {
+        display: block;
+      }
+
+      .password-reset > form > .submit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+
+      .password-reset > form > .submit > button {
+        background-color: #005194;
+        color: white;
+        border-radius: 3px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 1rem 4rem;
+        border: 0;
+      }
+
+      .password-reset > form > .submit > .back {
+        color: #005194;
+        text-decoration: none;
+      }
+
+      .password-reset > form > .submit > .back:hover,
+      .password-reset > form > .submit > .back:focus {
+        color: #2c2c2c;
+      }
+
+      .password-reset > form > .help {
+        color: #005194;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+      }
+
+      .password-reset > form > .help:hover,
+      .password-reset > form > .help:focus {
+        color: #2c2c2c;
+      }
+
+      .password-reset > form > .help > .arrow {
+        transform: rotate(180deg);
+        display: inline-block;
+        font-size: 1.2rem;
+        position: relative;
+        bottom: 0.1rem;
+      }
+    </style>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <div class="password-reset">
+      <h2>Forgot Your Password?</h2>
+      <p>Please enter your email address below to receive a password reset link.</p>
+
+      <form>
+        <p class="error">Sorry, there is no account attached to that email address</p>
+
+        <label>
+          Email Address
+          <input type="text" name="email" placeholder="Your email address">
+          <span class="message">Please enter a valid email address</span>
+        </label>
+
+        <div class="submit">
+          <button>Reset Password</button>
+          <a class="back" href="#">Go Back</a>
+        </div>
+
+        <div class="help">
+          Are you having trouble receiving your password reset?
+          <span class="arrow">^</span>
+        </div>
+
+        <div class="help-message">
+
+        </div>
+      </form>
+    </div>
+
+    <script>
+      async function query_email(email) {
+        let response = await fetch(
+          "http://localhost:3005/customer/account/resetPassword", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email: email})
+          }
+        );
+
+        return await response.json();
+      }
+
+      query_email("lol@bob.com");
+    </script>
   </body>
 </html>
