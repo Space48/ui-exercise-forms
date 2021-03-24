@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --font-color: #4d4d4d;
+  --link-color: #326394;
+  --accent-color: #1c4294;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  /* background-color: grey; */
+  color: var(--font-color);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+h1 {
+  font-weight: 700;
+  margin: 8em 0 0;
+}
+
+.fontsize-s {
+  font-size: 1em;
+}
+.fontsize-m {
+  font-size: 1.2em;
+}
+.fontsize-l {
+  font-size: 2em;
+}
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.6em 1em;
+  background-color: rgb(238, 238, 238);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.btn {
+  padding: 1em 3em;
+  border: none;
+  border-radius: 0.2em;
+  cursor: pointer;
+  transition: transform, filter 1ms linear;
+}
+
+.btn:hover {
+  filter: brightness(0.5);
+}
+
+.btn:active {
+  transform: translateY(0.1em);
+}
+
+.btn-main {
+  color: white;
+  background-color: var(--accent-color);
+}
+
+.form-container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+#email {
+  padding: 0.8em;
+  margin-top: 0.2em;
+  border: solid 1px gray;
+  border-radius: 0.2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.6em 0 1em;
+}
+
+.info-label {
+  color: var(--link-color);
+}
+
+.info-text {
+  max-height: 0;
+  width: auto;
+  overflow: hidden;
+  padding: 0 1em;
+  text-align: left;
+  background: white;
+  border-radius: 2px;
+  margin-top: 1em;
+  transition: max-height 800ms ease;
+  box-shadow: inset 0px 0px 0px 1px rgb(187, 187, 187);
+}
+
+[id="toggle-info"]:checked + .info-text {
+  max-height: 100em;
+  box-sizing: border-box;
+}
+
+.info-text p {
+  margin: 2em 1em;
+}
+
+.form-container ol {
+  padding-left: 2em;
+  margin: 2em 0;
+}

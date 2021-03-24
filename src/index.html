@@ -6,8 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles/app.pcss" />
     <script async src="./scripts/app.ts"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <section>
+      <h1 class="text-center">Forgot Your Password?</h1>
+      <p class="text-center">Please enter your email address bellow to receive a password reset link.</p>
+      
+      <div class="container">
+          <div class="form-container">
+              <form id="reset-password-form">
+                  <label for="email">Email Address</label>
+                  <input id="email" class="fontsize-s" name="email" type="email" placeholder="email@emailaddress.com">
+                  <div class="form-buttons">
+                      <button class="btn btn-main fontsize-m" type="submit" onclick="post()">Reset Password</button>
+                      <a class="" href="">Go Back</a>
+                  </div>
+              </form>
+          
+              <label for="toggle-info" class="pointer"><span class="info-label">Are you having trouble resetting your password? ▼</span>
+                  <input id="toggle-info" type="checkbox" style="visibility:hidden">
+                  <div class="info-text">
+                      <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem nulla, explicabo cum quibusdam rem voluptate, voluptas impedit quas consequuntur.</P>
+
+                      <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem nulla, explicabo cum quibusdam rem voluptate, voluptas impedit quas consequuntur.</P>
+
+                      <ol>
+                          <li><span class="fontSize-m">Go back to the <a href="">register page</a></span></li>
+                          <br>
+                          <li><span class="fontSize-m">Register with your email address</span><br>
+                              <i>If you already have an account, the form will tell you</i>
+                          </li>
+                      </ol>
+
+                      <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem nulla, explicabo cum quibusdam rem voluptate, voluptas impedit quas consequuntur.</P>
+                  </div>
+              </label>
+              <div>
+          </div>
+      </div>
+    </section>
   </body>
 </html>
