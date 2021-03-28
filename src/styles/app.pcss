@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after 
+  {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  
+  /*
+   * Remove text-shadow in selection highlight:
+   * https://twitter.com/miketaylr/status/12228805301
+   *
+   * Customize the background color to match your design.
+   */
+  
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  /*
+   * A better looking default horizontal rule
+   */
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  /*
+   * Remove the gap between audio, canvas, iframes,
+   * images, videos and the bottom of their containers:
+   * https://github.com/h5bp/html5-boilerplate/issues/440
+   */
+  
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+  
+  /*
+   * Remove default fieldset styles.
+   */
+  
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*
+   * Allow only vertical resizing of textareas.
+   */
+  
+  textarea {
+    resize: vertical;
+  }
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body
+{
+    padding: 1em 0;
+    color: #2C2C2C;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a
+{
+    text-decoration: none;
+    color: #005295;
+}
+h1
+{
+ text-align: center;
+}
+h1~p{
+    text-align: center;
+}
+
+
+#password-block-holder
+{
+    margin: 2em 0;
+    padding: 2em;
+    border: 1px solid #EDEDED;
+    background-color: #F7F7F7;  
+}
+#password-block-inner
+{
+    width: 450px;
+    margin: 0 auto;
+}
+
+.error
+{
+    color: #FA2428;
+}
+input.error
+{
+    border: 1px solid #FA2428;
+    background-color: #FEEEF1;
+}
+#password-feedback.error
+{
+  font-weight: bold;
+  padding: 1em 0;
+}
+#password-feedback.success
+{
+}
+
+#email-feedback
+{
+    font-style: italic;
+    font-size: .8em;
+}
+input#emailAddress
+{
+    margin: .3em 0;
+    padding: 1em;
+    width: 100%;
+    border: 1px solid #949494;
+    border-radius: .3em;
+}
+
+#btn-submit
+{
+    float: left;
+    display: block;
+    font-size: 1.3em;
+    color: #FFF;
+    font-weight: normal;
+    width: 250px;
+    height: 60px;
+    padding: .8em;
+    background-color: #005295;
+    border: none;
+    border-radius: .2em;
+}
+#btn-back
+{
+    float: right;
+    display: block;
+    height: 60px;
+    padding-top: 1.2em;
+}
+#btn-trouble
+{
+  position: relative;
+  clear: both;
+  display: block;
+  width: 100%;
+  padding: 2em 0 0 0;
+}
+#btn-trouble:after
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 20px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+#password-block-trouble
+{
+    margin: 1em 0;
+    padding: 0 1em;
+    font-size: .9em;
+    border: 1px solid #EDEDED;
+    background-color: #FFF;  
+}
+
+
+
+  /* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+
