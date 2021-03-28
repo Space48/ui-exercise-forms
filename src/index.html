@@ -5,9 +5,34 @@
     <title>Password Reset Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles/app.pcss" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async src="./scripts/app.ts"></script>
   </head>
   <body>
-    <div>Replace me with the exercise design</div>
+    <div>
+      <h1>Forgot Your Password?</h1>
+      <p>Please enter your email address below to recieve a password reset link.</p>
+      <div id="password-block-holder">
+        <div id="password-block-inner">
+          <div id="password-feedback" class="error">Sorry, there is no account attached to that email address</div>
+          <label for="emailAddress">Email Address</label>
+          <br/>
+          <input id="emailAddress" placeholder="Your email address">
+          <div id="email-feedback" class="error">Please enter valid email address</div>
+          <button type="submit" id="btn-submit">Reset Password</button>
+          <a href="#" id="btn-back">Go Back</a>
+          <br class="clearfix" />
+          <a href="#" id="btn-trouble" class="clearfix">Are you having trouble recieving your password reset?</a>
+          <div id="password-block-trouble">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada suscipit erat. Donec vitae erat mauris. Quisque molestie dolor a ligula laoreet, at ornare nunc laoreet. Aliquam sit amet suscipit velit, sed feugiat ligula.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada suscipit erat. Donec vitae erat mauris. Quisque molestie dolor a ligula laoreet, at ornare nunc laoreet. Aliquam sit amet suscipit velit, sed feugiat ligula.</p>
+            <ol>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Lorem ipsum dolor sit amet</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
